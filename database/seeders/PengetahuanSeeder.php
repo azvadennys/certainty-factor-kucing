@@ -16,7 +16,7 @@ class PengetahuanSeeder extends Seeder
     public function run()
     {
         $pengetahuan = [
-            [
+
                 ['kode_penyakit' => 'P001', 'kode_gejala' => 'G01', 'nilai_cf' => 0.35],
                 ['kode_penyakit' => 'P001', 'kode_gejala' => 'G02', 'nilai_cf' => 0.3],
                 ['kode_penyakit' => 'P001', 'kode_gejala' => 'G05', 'nilai_cf' => 0.65],
@@ -135,7 +135,6 @@ class PengetahuanSeeder extends Seeder
                 ['kode_penyakit' => 'P013', 'kode_gejala' => 'G41', 'nilai_cf' => 0.6],
                 ['kode_penyakit' => 'P013', 'kode_gejala' => 'G42', 'nilai_cf' => 0.5],
                 ['kode_penyakit' => 'P013', 'kode_gejala' => 'G57', 'nilai_cf' => 0.4],
-            ]
         ];
 
         DB::table('pengetahuan')->insert($pengetahuan);
