@@ -7,16 +7,16 @@
             <form action="{{ route('pengetahuan.store') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="kode_serum" class="form-label">Kode Serum</label>
-                    <select name="kode_serum" id="kode_serum" class="form-control select2-serum" style="width: 100%;"
+                    <label for="kode_penyakit" class="form-label">Kode penyakit</label>
+                    <select name="kode_penyakit" id="kode_penyakit" class="form-control select2-penyakit" style="width: 100%;"
                         required>
-                        <option value="">Pilih Kode Serum</option>
-                        @foreach ($serums as $serum)
-                            <option value="{{ $serum->kode_serum }}">{{ $serum->kode_serum }} - {{ $serum->nama_serum }}
+                        <option value="">Pilih Kode penyakit</option>
+                        @foreach ($penyakits as $penyakit)
+                            <option value="{{ $penyakit->kode_penyakit }}">{{ $penyakit->kode_penyakit }} - {{ $penyakit->nama_penyakit }}
                             </option>
                         @endforeach
                     </select>
-                    @error('kode_serum')
+                    @error('kode_penyakit')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -51,13 +51,13 @@
 @push('custome_js')
     <script>
         $(document).ready(function() {
-            // Initialize Select2 for serum select
-            $('.select2-serum').select2({
-                placeholder: "Pilih Kode Serum",
+            // Initialize Select2 for penyakit select
+            $('.select2-penyakit').select2({
+                placeholder: "Pilih Kode penyakit",
                 allowClear: true,
                 minimumInputLength: 2, // Minimum input length for searching
                 ajax: {
-                    url: "{{ route('serums.select2') }}",
+                    url: "{{ route('penyakits.select2') }}",
                     dataType: 'json',
                     delay: 250, // Delay in milliseconds before the request is sent
                     processResults: function(data) {

@@ -35,7 +35,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('users', UserController::class)->except(['show']);
     Route::resource('animasi', AnimasiController::class)->except(['show']);
 
-    Route::get('/pengetahuan/select2Serum', [PengetahuanController::class, 'select2Serum'])->name('serums.select2');
+    Route::get('/pengetahuan/select2penyakit', [PengetahuanController::class, 'select2penyakit'])->name('penyakits.select2');
     Route::get('/pengetahuan/select2Gejala', [PengetahuanController::class, 'select2Gejala'])->name('gejalas.select2');
     Route::get('/pengetahuan', [PengetahuanController::class, 'index'])->name('pengetahuan.index');
     Route::get('/pengetahuan/create', [PengetahuanController::class, 'create'])->name('pengetahuan.create');

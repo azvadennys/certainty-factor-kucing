@@ -9,7 +9,7 @@
         <table class="table" id="pengetahuan-table">
             <thead>
                 <tr>
-                    <th class="text-center">Kode Serum</th>
+                    <th class="text-center">Kode Penyakit</th>
                     <th class="text-center">Kode Gejala</th>
                     <th class="text-center">Nilai CF</th>
                     <th>Actions</th>
@@ -18,7 +18,7 @@
             <tbody>
                 @foreach ($pengetahuan as $item)
                     <tr class="text-center">
-                        <td><b>{{ $item->kode_serum }}</b></td>
+                        <td><b>{{ $item->kode_penyakit }}</b></td>
                         <td><b>{{ $item->kode_gejala }}</b></td>
                         <td><b>{{ $item->nilai_cf }}</b></td>
                         <td>

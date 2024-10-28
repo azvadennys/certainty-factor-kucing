@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gejala;
 use App\Models\Pengetahuan;
-use App\Models\Serum;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
 class PengetahuanController extends Controller
@@ -18,7 +18,7 @@ class PengetahuanController extends Controller
     public function create()
     {
         $data = [
-            'serums' => Serum::all(),
+            'penyakits' => Penyakit::all(),
             'gejalas' => Gejala::all(),
         ];
         return view('pengetahuan.create', $data);
@@ -27,7 +27,7 @@ class PengetahuanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_serum' => 'required',
+            'kode_penyakit' => 'required',
             'kode_gejala' => 'required',
             'nilai_cf' => 'required',
         ]);
@@ -65,25 +65,25 @@ class PengetahuanController extends Controller
         return redirect()->route('pengetahuan.index')->with('success', 'Pengetahuan deleted successfully.');
     }
 
-    public function select2Serum(Request $request)
+    public function select2penyakit(Request $request)
     {
         $search = $request->term;
 
-        $serums = Serum::where('kode_serum', 'LIKE', "%$search%")
-            ->orWhere('nama_serum', 'LIKE', "%$search%")
+        $penyakits = Penyakit::where('kode_penyakit', 'LIKE', "%$search%")
+            ->orWhere('nama_penyakit', 'LIKE', "%$search%")
             ->limit(10)
             ->get();
 
-        $formattedSerums = [];
+        $formattedpenyakits = [];
 
-        foreach ($serums as $serum) {
-            $formattedSerums[] = [
-                'id' => $serum->kode_serum,
-                'text' => $serum->kode_serum . ' - ' . $serum->nama_serum,
+        foreach ($penyakits as $penyakit) {
+            $formattedpenyakits[] = [
+                'id' => $penyakit->kode_penyakit,
+                'text' => $penyakit->kode_penyakit . ' - ' . $penyakit->nama_penyakit,
             ];
         }
 
-        return response()->json($formattedSerums);
+        return response()->json($formattedpenyakits);
     }
 
     public function select2Gejala(Request $request)
