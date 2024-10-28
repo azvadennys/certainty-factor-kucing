@@ -5,10 +5,10 @@ use App\Http\Controllers\CFController;
 use App\Http\Controllers\GejalaController;
 use App\Http\Controllers\LandingPage;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SerumController;
 use App\Http\Controllers\PengetahuanController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PenyakitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +30,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
-    Route::resource('serums', SerumController::class)->except(['show']);
+    Route::resource('penyakits', PenyakitController::class)->except(['show']);
     Route::resource('gejalas', GejalaController::class)->except(['show']);
     Route::resource('users', UserController::class)->except(['show']);
     Route::resource('animasi', AnimasiController::class)->except(['show']);

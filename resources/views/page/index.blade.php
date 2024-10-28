@@ -6,10 +6,8 @@
                 <div class="card shadow-lg border-0 rounded-lg mb-4">
                     <div class="card-body p-5">
                         <h1 class="display-4 mb-4" style="color: var(--accent-color);">Selamat Datang!</h1>
-                        <h2 class="h4 mb-3 text-dark">Sistem Pakar Pemilihan Serum Wajah Somethinc</h2>
-                        <p class="lead text-muted">Temukan rekomendasi serum wajah terbaik untuk kulit Anda dengan teknologi
-                            sistem pakar yang canggih. Mulailah dengan memilih gejala yang Anda alami dan kami akan membantu
-                            Anda menemukan serum yang paling sesuai.</p>
+                        <h2 class="h4 mb-3 text-dark">Sistem Pakar Diagnosa penyakit Jamur Pada Kucing</h2>
+                        <p class="lead text-muted"></p>
                         <a href="{{ route('diagnosa') }}" class="btn btn-primary btn-lg mt-4">Mulai
                             Konsultasi</a>
                     </div>
@@ -39,9 +37,9 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>{{ $total_serum }}</h3>
+                            <h3>{{ $total_penyakit }}</h3>
 
-                            <p>Total Serum</p>
+                            <p>Total penyakit</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-beaker"></i>

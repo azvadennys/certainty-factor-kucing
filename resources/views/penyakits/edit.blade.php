@@ -1,46 +1,46 @@
 @extends('index')
 
 @section('content')
-    <h1 class="text-center mb-4">Edit Serum</h1>
+    <h1 class="text-center mb-4">Edit Penyakit</h1>
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
-            <form action="{{ route('serums.update', $serum->kode_serum) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('penyakits.update', $penyakit->kode_penyakit) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
                 <div class="form-group mb-3">
-                    <label for="kode_serum" class="form-label">Kode Serum</label>
-                    <input type="text" name="kode_serum" class="form-control" id="kode_serum"
-                        value="{{ old('kode_serum', $serum->kode_serum) }}" readonly>
+                    <label for="kode_penyakit" class="form-label">Kode Penyakit</label>
+                    <input type="text" name="kode_penyakit" class="form-control" id="kode_penyakit"
+                        value="{{ old('kode_penyakit', $penyakit->kode_penyakit) }}" readonly>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="nama_serum" class="form-label">Nama Serum</label>
-                    <input type="text" name="nama_serum" class="form-control" id="nama_serum"
-                        value="{{ old('nama_serum', $serum->nama_serum) }}" required>
+                    <label for="nama_penyakit" class="form-label">Nama Penyakit</label>
+                    <input type="text" name="nama_penyakit" class="form-control" id="nama_penyakit"
+                        value="{{ old('nama_penyakit', $penyakit->nama_penyakit) }}" required>
                 </div>
                 <div class="form-group mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi</label>
-                    <textarea name="deskripsi" class="form-control" id="deskripsi">{{ old('deskripsi', $serum->deskripsi) }}</textarea>
+                    <textarea name="deskripsi" class="form-control" id="deskripsi">{{ old('deskripsi', $penyakit->deskripsi) }}</textarea>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="foto_serum" class="form-label">Foto Serum</label>
-                    <input type="file" name="foto_serum" class="form-control" id="foto_serum"
+                    <label for="foto_penyakit" class="form-label">Foto Penyakit</label>
+                    <input type="file" name="foto_penyakit" class="form-control" id="foto_penyakit"
                         onchange="previewImage(event)">
                     <h6 class="text-secondary">*Kosongkan jika tidak ingin ganti foto</h6>
                 </div>
 
                 {{-- Tampilkan foto terkini --}}
                 <div class="form-group mb-3" id="current_foto_section">
-                    <label for="current_foto" class="form-label">Foto Serum Terkini</label><br>
-                    @if ($serum->foto_serum)
-                        <img id="current_foto" src="{{ asset($serum->foto_serum) }}" alt="Foto Serum" height="200">
+                    <label for="current_foto" class="form-label">Foto Penyakit Terkini</label><br>
+                    @if ($penyakit->foto_penyakit)
+                        <img id="current_foto" src="{{ asset($penyakit->foto_penyakit) }}" alt="Foto penyakit" height="200">
                     @else
                         <span class="text-secondary">Tidak ada foto terkini.</span>
                     @endif
                 </div>
 
                 <button type="submit" class="btn btn-primary ">Update</button>
-                <a href="{{ route('serums.index') }}" class="btn btn-info">Kembali</a>
+                <a href="{{ route('penyakits.index') }}" class="btn btn-info">Kembali</a>
             </form>
         </div>
     </div>

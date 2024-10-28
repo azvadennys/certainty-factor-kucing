@@ -3,7 +3,7 @@
 
         <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
             {{-- <img src="assets/img/logo.png" alt=""> --}}
-            <h1 class="sitename">heloThinc!</h1>
+            <h1 class="sitename">Cat Solution!</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -17,8 +17,8 @@
                     @if (auth()->user()->role == 'admin')
                         <li><a class="{{ Request::is('users*') ? 'active' : '' }}" href="{{ url('users') }}"><i
                                     class="fa fa-user"></i> Pengguna</a></li>
-                        <li><a class="{{ Request::is('serums*') ? 'active' : '' }}" href="{{ url('serums') }}"><i
-                                    class="fa fa-bug"></i> Serum</a></li>
+                        <li><a class="{{ Request::is('penyakits*') ? 'active' : '' }}" href="{{ url('penyakits') }}"><i
+                                    class="fa fa-bug"></i> Penyakit</a></li>
                         <li><a class="{{ Request::is('gejalas*') ? 'active' : '' }}" href="{{ url('gejalas') }}"><i
                                     class="fa fa-eyedropper"></i> Gejala</a></li>
                         <li><a class="{{ Request::is('pengetahuan*') ? 'active' : '' }}"

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Serum extends Model
+class Penyakit extends Model
 {
     use HasFactory;
-    protected $table = 'serum';
-    protected $primaryKey = 'kode_serum';
+    protected $table = 'penyakit';
+    protected $primaryKey = 'kode_penyakit';
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['kode_serum', 'nama_serum', 'deskripsi', 'foto_serum'];
+    protected $fillable = ['kode_penyakit', 'nama_penyakit', 'deskripsi', 'foto_penyakit'];
 }

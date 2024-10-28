@@ -4,35 +4,35 @@
 @endpush
 @section('content')
     <div class="p-4">
-        <h1>Daftar Serum</h1>
-        <a href="{{ route('serums.create') }}" class="btn btn-primary mb-3">Tambah Serum</a>
+        <h1>Daftar Penyakit</h1>
+        <a href="{{ route('penyakits.create') }}" class="btn btn-primary mb-3">Tambah Penyakit</a>
         <table class="table mt-3" id="table1">
             <thead>
                 <tr>
-                    <th>Kode Serum</th>
-                    <th>Nama Serum</th>
+                    <th>Kode penyakit</th>
+                    <th>Nama penyakit</th>
                     <th>Deskripsi</th>
                     <th>Foto</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($serums as $serum)
+                @foreach ($penyakits as $penyakit)
                     <tr>
-                        <td>{{ $serum->kode_serum }}</td>
-                        <td>{{ $serum->nama_serum }}</td>
-                        <td>{{ $serum->deskripsi }}</td>
+                        <td>{{ $penyakit->kode_penyakit }}</td>
+                        <td>{{ $penyakit->nama_penyakit }}</td>
+                        <td>{{ $penyakit->deskripsi }}</td>
                         <td class="text-center">
-                            @if ($serum->foto_serum)
-                                <img src="{{ asset($serum->foto_serum) }}" alt="{{ $serum->nama_serum }}" height="100">
+                            @if ($penyakit->foto_penyakit)
+                                <img src="{{ asset($penyakit->foto_penyakit) }}" alt="{{ $penyakit->nama_penyakit }}" height="100">
                             @else
                                 No image
                             @endif
                         </td>
                         <td>
-                            {{-- <button class="btn btn-info btn-show" data-id="{{ $serum->kode_serum }}">Show</button> --}}
-                            <a href="{{ route('serums.edit', $serum->kode_serum) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('serums.destroy', $serum->kode_serum) }}" method="POST"
+                            {{-- <button class="btn btn-info btn-show" data-id="{{ $penyakit->kode_penyakit }}">Show</button> --}}
+                            <a href="{{ route('penyakits.edit', $penyakit->kode_penyakit) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('penyakits.destroy', $penyakit->kode_penyakit) }}" method="POST"
                                 style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
@@ -51,12 +51,12 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="showModalLabel">Detail Serum</h5>
+                    <h5 class="modal-title" id="showModalLabel">Detail penyakit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="serumDetails">
-                        <!-- Placeholder for serum details -->
+                    <div id="penyakitDetails">
+                        <!-- Placeholder for penyakit details -->
                     </div>
                 </div>
             </div>
@@ -74,12 +74,12 @@
 
             // Handle Show button click to open modal and load details
             $('.btn-show').click(function() {
-                var serumId = $(this).data('id');
+                var penyakitId = $(this).data('id');
                 $.ajax({
-                    url: '/serums/' + serumId,
+                    url: '/penyakits/' + penyakitId,
                     type: 'GET',
                     success: function(response) {
-                        $('#serumDetails').html(response);
+                        $('#penyakitDetails').html(response);
                         $('#showModal').modal('show');
                     },
                     error: function(xhr) {
