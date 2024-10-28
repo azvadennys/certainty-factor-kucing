@@ -9,6 +9,6 @@ class Animasi extends Model
 {
     use HasFactory;
     protected $table = 'animasi';
-    protected $fillable = ['nama', 'video_animasi', 'narator', 'id_serum'];
-   
+    protected $fillable = ['nama', 'video_animasi', 'narator', 'id_penyakit'];
+
 }

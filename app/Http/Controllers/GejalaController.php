@@ -29,7 +29,7 @@ class GejalaController extends Controller
     {
         $number = (int)substr($lastCode, 1);
         $newNumber = $number + 1;
-        return 'G' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        return 'G' . str_pad($newNumber, 2, '0', STR_PAD_LEFT);
     }
 
     public function create()
@@ -37,7 +37,7 @@ class GejalaController extends Controller
 
         // Ambil kode_gejala terakhir dari database
         $lastSerum = Gejala::orderBy('kode_gejala', 'desc')->first();
-        $lastCode = $lastSerum ? $lastSerum->kode_gejala : 'G000';
+        $lastCode = $lastSerum ? $lastSerum->kode_gejala : 'G00';
         $kode_gejala = GejalaController::generateSerumCode($lastCode);
         $data = [
             'kode_gejala' => $kode_gejala,

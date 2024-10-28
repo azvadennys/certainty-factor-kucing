@@ -4,12 +4,12 @@
 @endpush
 @section('content')
     <div class="container">
-        <h2 class="text-center">Konsultasi Rekomendasi Serum Wajah Somethinc</h2>
-        <p class="text-center">Selamat datang di layanan konsultasi rekomendasi serum wajah dari Somethinc. Kami hadir untuk
+        <h2 class="text-center">Sistem Pakar Diagnosa Penyakit Jamur Pada Kucing</h2>
+        {{-- <p class="text-center">Selamat datang di layanan konsultasi rekomendasi penyakit wajah dari Somethinc. Kami hadir untuk
             membantu Anda
-            menemukan serum yang tepat sesuai dengan masalah kulit yang Anda alami. Dengan menjawab beberapa pertanyaan
+            menemukan penyakit yang tepat sesuai dengan masalah kulit yang Anda alami. Dengan menjawab beberapa pertanyaan
             sederhana mengenai kondisi kulit Anda, kami dapat memberikan rekomendasi produk yang paling sesuai untuk
-            kebutuhan Anda.</p>
+            kebutuhan Anda.</p> --}}
         <form method="post" action="{{ route('calculate.cf') }}" id="cfForm">
             @csrf
             <div class="table-responsive">
@@ -29,8 +29,8 @@
                             </tr>
                             @foreach ($items as $item)
                                 <tr>
-                                    <td class="text-center"><b>{{ $item['kode_gejala'] }}</b></td>
-                                    <td>{{ ucwords($item['nama_gejala']) }}</td>
+                                    <td class="text-center align-middle"><b>{{ $item['kode_gejala'] }}</b></td>
+                                    <td class="align-middle">{{ ucwords($item['nama_gejala']) }}</td>
                                     <td>
                                         <select id="gejala_{{ $item['kode_gejala'] }}"
                                             name="gejala[{{ $item['kode_gejala'] }}]" class="form-control cf-select">

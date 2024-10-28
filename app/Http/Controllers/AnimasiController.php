@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Animasi;
 use App\Models\Gejala;
-use App\Models\Serum;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -19,13 +19,13 @@ class AnimasiController extends Controller
     public function index()
     {
         $animasi = Animasi::all();
-        $serums = Serum::all()->pluck('nama_serum', 'kode_serum')->toArray();
+        $penyakits = Penyakit::all()->pluck('nama_penyakit', 'kode_penyakit')->toArray();
 
         foreach ($animasi as $index) {
-            $serum_ids = json_decode($index->id_serum);
-            $index->serum_details = array_map(function ($id) use ($serums) {
-                return isset($serums[$id]) ? "($id) | {$serums[$id]}" : "($id) | Unknown Serum";
-            }, $serum_ids);
+            $penyakit_ids = json_decode($index->id_penyakit);
+            $index->penyakit_details = array_map(function ($id) use ($penyakits) {
+                return isset($penyakits[$id]) ? "($id) | {$penyakits[$id]}" : "($id) | Unknown Penyakit";
+            }, $penyakit_ids);
         }
 
         return view('animasi.index', compact('animasi'));
@@ -39,9 +39,9 @@ class AnimasiController extends Controller
 
     public function create()
     {
-        $serum = Serum::all();
+        $penyakit = Penyakit::all();
         $data = [
-            'serum' => $serum,
+            'penyakit' => $penyakit,
         ];
         return view('animasi.create', $data);
     }
@@ -58,7 +58,7 @@ class AnimasiController extends Controller
             'nama' => 'required|string|max:255',
             'video_animasi' => 'required|file|mimetypes:video/avi,video/mpeg,video/mp4,video/quicktime',
             'narator' => 'required|string',
-            'id_serum' => 'required|array',
+            'id_penyakit' => 'required|array',
         ]);
 
         // $videoPath = $request->file('video_animasi')->store('images/animasi', 'public');
@@ -79,7 +79,7 @@ class AnimasiController extends Controller
             'nama' => $request->input('nama'),
             'video_animasi' => $videoPath,
             'narator' => $request->input('narator'),
-            'id_serum' => json_encode($request->input('id_serum')),
+            'id_penyakit' => json_encode($request->input('id_penyakit')),
         ]);
 
         return redirect()->route('animasi.index')->with('success', 'Animasi berhasil ditambahkan');
@@ -106,8 +106,8 @@ class AnimasiController extends Controller
     public function edit($id)
     {
         $animasi = Animasi::findOrFail($id);
-        $serum = Serum::all();
-        return view('animasi.edit', compact('animasi', 'serum'));
+        $penyakit = Penyakit::all();
+        return view('animasi.edit', compact('animasi', 'penyakit'));
     }
 
     /**
@@ -123,7 +123,7 @@ class AnimasiController extends Controller
             'nama' => 'required|string|max:255',
             'video_animasi' => 'nullable|file|mimetypes:video/avi,video/mpeg,video/mp4,video/quicktime',
             'narator' => 'required|string',
-            'id_serum' => 'required|array',
+            'id_penyakit' => 'required|array',
         ]);
 
         // Ambil data animasi yang akan diupdate
@@ -154,7 +154,7 @@ class AnimasiController extends Controller
         $animasi->nama = $request->input('nama');
         $animasi->video_animasi = $videoPath;
         $animasi->narator = $request->input('narator');
-        $animasi->id_serum = json_encode($request->input('id_serum'));
+        $animasi->id_penyakit = json_encode($request->input('id_penyakit'));
         $animasi->save();
 
         return redirect()->route('animasi.index')->with('success', 'Animasi berhasil diperbarui');

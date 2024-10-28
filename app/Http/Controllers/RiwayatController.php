@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Animasi;
 use App\Models\Riwayat;
-use App\Models\Serum;
+use App\Models\Penyakit;
 use Illuminate\Http\Request;
 
 class RiwayatController extends Controller
@@ -27,16 +27,16 @@ class RiwayatController extends Controller
         $riwayats = Riwayat::where('id', $id)->first();
 
         $cfResults = json_decode($riwayats->cfResults);
-        $serumResults = json_decode($riwayats->serumResults);
+        $penyakitResults = json_decode($riwayats->penyakitResults);
 
-        $serumTertinggi = $serumResults[0]->kode_serum;
-        // Query menggunakan Eloquent untuk mencari data animasi berdasarkan id_serum
-        $animasi = Animasi::whereJsonContains('id_serum', $serumTertinggi)->get();
-        $serum = Serum::where('kode_serum', $serumTertinggi)->first();
-        $serumAll = Serum::all();
+        $penyakitTertinggi = $penyakitResults[0]->kode_penyakit;
+        // Query menggunakan Eloquent untuk mencari data animasi berdasarkan id_penyakit
+        $animasi = Animasi::whereJsonContains('id_penyakit', $penyakitTertinggi)->get();
+        $penyakit = Penyakit::where('kode_penyakit', $penyakitTertinggi)->first();
+        $penyakitAll = Penyakit::all();
         $url_back = url()->previous();
 
-        return view('riwayat.show', compact('riwayats', 'cfResults', 'serumResults', 'animasi', 'serum', 'serumAll', 'url_back'));
+        return view('riwayat.show', compact('riwayats', 'cfResults', 'penyakitResults', 'animasi', 'penyakit', 'penyakitAll', 'url_back'));
     }
 
     public function destroy($id)

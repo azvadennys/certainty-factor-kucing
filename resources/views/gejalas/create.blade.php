@@ -24,14 +24,19 @@
                     <select name="kategori" class="form-select" aria-label="Kategori" required>
                         <option value="" disabled {{ old('kategori') === null ? 'selected' : '' }}>Pilih Kategori
                         </option>
-                        <option value="Tipe Kulit" {{ old('kategori') === 'Tipe Kulit' ? 'selected' : '' }}>Tipe Kulit
-                        </option>
-                        <option value="Gejala Masalah Kulit Yang Sering Dialami"
-                            {{ old('kategori') === 'Gejala Masalah Kulit Yang Sering Dialami' ? 'selected' : '' }}>Gejala
-                            Masalah Kulit Yang Sering Dialami</option>
-                        <option value="Gejala Masalah Kulit Lainnya"
-                            {{ old('kategori') === 'Gejala Masalah Kulit Lainnya' ? 'selected' : '' }}>Gejala Masalah Kulit
-                            Lainnya</option>
+                        <option value="Perubahan Nafsu Makan" {{ old('kategori') === 'Perubahan Nafsu Makan' ? 'selected' : '' }}>Perubahan Nafsu Makan</option>
+                        <option value="Perubahan Mobilitas" {{ old('kategori') === 'Perubahan Mobilitas' ? 'selected' : '' }}>Perubahan Mobilitas</option>
+                        <option value="Perubahan Berat Badan" {{ old('kategori') === 'Perubahan Berat Badan' ? 'selected' : '' }}>Perubahan Berat Badan</option>
+                        <option value="Perubahan Aktivitas" {{ old('kategori') === 'Perubahan Aktivitas' ? 'selected' : '' }}>Perubahan Aktivitas</option>
+                        <option value="Gangguan Telinga" {{ old('kategori') === 'Gangguan Telinga' ? 'selected' : '' }}>Gangguan Telinga</option>
+                        <option value="Gangguan Sistemik" {{ old('kategori') === 'Gangguan Sistemik' ? 'selected' : '' }}>Gangguan Sistemik</option>
+                        <option value="Gangguan Sistem Imun" {{ old('kategori') === 'Gangguan Sistem Imun' ? 'selected' : '' }}>Gangguan Sistem Imun</option>
+                        <option value="Gangguan Pernapasan" {{ old('kategori') === 'Gangguan Pernapasan' ? 'selected' : '' }}>Gangguan Pernapasan</option>
+                        <option value="Gangguan Mata" {{ old('kategori') === 'Gangguan Mata' ? 'selected' : '' }}>Gangguan Mata</option>
+                        <option value="Gangguan Kulit dan Rambut" {{ old('kategori') === 'Gangguan Kulit dan Rambut' ? 'selected' : '' }}>Gangguan Kulit dan Rambut</option>
+                        <option value="Gangguan Kulit" {{ old('kategori') === 'Gangguan Kulit' ? 'selected' : '' }}>Gangguan Kulit</option>
+                        <option value="Gangguan Kuku" {{ old('kategori') === 'Gangguan Kuku' ? 'selected' : '' }}>Gangguan Kuku</option>
+                        <option value="Gangguan Genital" {{ old('kategori') === 'Gangguan Genital' ? 'selected' : '' }}>Gangguan Genital</option>
                     </select>
                     @error('kategori')
                         <div class="invalid-feedback">{{ $message }}</div>

@@ -13,7 +13,7 @@
                     <th>Nama Animasi</th>
                     <th>Narator</th>
                     <th>Animasi</th>
-                    <th>ID Serum</th>
+                    <th>ID Penyakit</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -38,15 +38,15 @@
                         </td>
                         <td>
                             <ul>
-                                @foreach ($index->serum_details as $serum_name)
+                                @foreach ($index->penyakit_details as $penyakit_name)
                                     <li>
-                                        <span class="badge badge-primary text-dark">{{ $serum_name }}</span>
+                                        <span class="badge badge-primary text-dark">{{ $penyakit_name }}</span>
                                     </li>
                                 @endforeach
                             </ul>
                         </td>
                         <td>
-                            {{-- <button class="btn btn-info btn-show" data-id="{{ $serum->kode_gejala }}">Show</button> --}}
+                            {{-- <button class="btn btn-info btn-show" data-id="{{ $penyakit->kode_gejala }}">Show</button> --}}
                             <a href="{{ route('animasi.edit', $index->id) }}" class="btn btn-warning">Edit</a>
                             <form action="{{ route('animasi.destroy', $index->id) }}" method="POST"
                                 style="display:inline-block;">

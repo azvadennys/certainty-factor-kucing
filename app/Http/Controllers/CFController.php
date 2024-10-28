@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Gejala;
 use App\Models\Pengetahuan;
 use App\Models\Riwayat;
-use App\Models\Serum;
+use App\Models\Penyakit;
 
 class CFController extends Controller
 {
@@ -21,14 +21,14 @@ class CFController extends Controller
     {
         $userInput = $request->input('gejala');
         $cfResults = [];
-        $serums = Serum::all();
-        $serumResults = [];
+        $penyakits = Penyakit::all();
+        $penyakitResults = [];
 
-        foreach ($serums as $serum) {
-            $cf_serum = 0;
+        foreach ($penyakits as $penyakit) {
+            $cf_penyakit = 0;
             $iterasiCF = [];
 
-            $pengetahuans = Pengetahuan::where('kode_serum', $serum->kode_serum)->get();
+            $pengetahuans = Pengetahuan::where('kode_penyakit', $penyakit->kode_penyakit)->get();
             foreach ($pengetahuans as $pengetahuan) {
                 $kodeGejala = $pengetahuan->kode_gejala;
                 if (isset($userInput[$kodeGejala]) && $userInput[$kodeGejala] != 0) {
@@ -46,20 +46,20 @@ class CFController extends Controller
                         'cf_hasil' => $cf,
                     ];
 
-                    // Hitung CF serum menggunakan rumus CF_kombinasi
-                    $cf_serum += $cf * (1 - abs($cf_serum));
+                    // Hitung CF penyakit menggunakan rumus CF_kombinasi
+                    $cf_penyakit += $cf * (1 - abs($cf_penyakit));
                 }
             }
 
-            // Tambahkan hasil per serum
-            $serumResults[] = [
-                'kode_serum' => $serum->kode_serum,
-                'nama_serum' => $serum->nama_serum,
-                'persentase' => $cf_serum,
+            // Tambahkan hasil per penyakit
+            $penyakitResults[] = [
+                'kode_penyakit' => $penyakit->kode_penyakit,
+                'nama_penyakit' => $penyakit->nama_penyakit,
+                'persentase' => $cf_penyakit,
                 'iterasi_cf' => $iterasiCF,
             ];
-            // Urutkan array $serumResults berdasarkan persentase dari terbesar ke terkecil
-            usort($serumResults, function ($a, $b) {
+            // Urutkan array $penyakitResults berdasarkan persentase dari terbesar ke terkecil
+            usort($penyakitResults, function ($a, $b) {
                 return $b['persentase'] <=> $a['persentase'];
             });
         }
@@ -67,13 +67,13 @@ class CFController extends Controller
 
         // Ubah iterasiCF menjadi format JSON untuk penyimpanan
         $cfResultsJson = json_encode($cfResults);
-        $serumResultsJson = json_encode($serumResults);
+        $penyakitResultsJson = json_encode($penyakitResults);
 
         // Simpan ke dalam tabel riwayat
         $riwayat = new Riwayat();
         $riwayat->id_users = auth()->user()->id; // Sesuaikan dengan ID pengguna yang sesuai
         $riwayat->cfResults = $cfResultsJson;
-        $riwayat->serumResults = $serumResultsJson;
+        $riwayat->penyakitResults = $penyakitResultsJson;
         $riwayat->save();
 
         // Ambil ID dari data yang baru disimpan

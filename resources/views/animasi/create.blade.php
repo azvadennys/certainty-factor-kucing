@@ -41,17 +41,17 @@
                 </div>
 
                 <div class="form-group mb-2">
-                    <label for="id_serum">ID Serum:</label>
-                    <select name="id_serum[]" id="id_serum" class="form-control js-example-basic-multiple"
+                    <label for="id_penyakit">ID Penyakit:</label>
+                    <select name="id_penyakit[]" id="id_penyakit" class="form-control js-example-basic-multiple"
                         multiple="multiple" required>
-                        @foreach ($serum as $index)
-                            <option value="{{ $index->kode_serum }}"
-                                {{ collect(old('id_serum'))->contains($index->kode_serum) ? 'selected' : '' }}>
-                                {{ $index->kode_serum }} | {{ $index->nama_serum }}
+                        @foreach ($penyakit as $index)
+                            <option value="{{ $index->kode_penyakit }}"
+                                {{ collect(old('id_penyakit'))->contains($index->kode_penyakit) ? 'selected' : '' }}>
+                                {{ $index->kode_penyakit }} | {{ $index->nama_penyakit }}
                             </option>
                         @endforeach
                     </select>
-                    @error('id_serum')
+                    @error('id_penyakit')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
