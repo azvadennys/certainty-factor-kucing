@@ -123,10 +123,10 @@ class GejalaSeeder extends Seeder
             ],
             [
                 'kode_gejala' => 'G16',
-                'nama_gejala' => 'Hemorrhage (pendarahan tidak normal)',
-                'deskripsi_gejala' => 'Terjadi pendarahan dari area yang terinfeksi, yang dapat mengindikasikan infeksi yang lebih serius atau kerusakan jaringan.',
+                'nama_gejala' => 'Pembengkakan Wajah',
+                'deskripsi_gejala' => 'Kucing mungkin menunjukkan pembengkakan yang jelas di sekitar area hidung atau pipi, yang dapat terlihat seperti benjolan atau area yang membesar di bagian depan wajah.',
                 'foto_gejala' => 'images/gejalas/G16.jpg',
-                'kategori' => 'Gangguan Sistemik'
+                'kategori' => 'Gangguan Kulit'
             ],
             [
                 'kode_gejala' => 'G17',
@@ -435,6 +435,13 @@ class GejalaSeeder extends Seeder
                 'deskripsi_gejala' => 'Kehilangan rambut secara luas di seluruh tubuh, sering kali mengindikasikan kondisi kesehatan yang serius atau infeksi jamur yang luas.',
                 'foto_gejala' => 'images/gejalas/G60.jpg',
                 'kategori' => 'Gangguan Kulit dan Rambut'
+            ],
+            [
+                'kode_gejala' => 'G61',
+                'nama_gejala' => 'Lesi berwarna coklat, hijau, hitam, atau hijau tua dan disertai pembengkakan atau nanah',
+                'deskripsi_gejala' => 'Lesi kulit yang terinfeksi jamur sering muncul dengan warna coklat, hitam, hijau, atau hijau tua, disertai pembengkakan yang dapat melibatkan jaringan sekitar dan nanah yang keluar dari lesi, menandakan adanya peradangan dan infeksi sekunder.',
+                'foto_gejala' => 'images/gejalas/G61.jpg',
+                'kategori' => 'Gangguan Kulit'
             ],
         ];
 

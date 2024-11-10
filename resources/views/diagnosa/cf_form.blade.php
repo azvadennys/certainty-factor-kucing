@@ -4,28 +4,24 @@
 @endpush
 @section('content')
     <div class="container">
-        <h2 class="text-center">Sistem Pakar Diagnosa Penyakit Jamur Pada Kucing</h2>
-        {{-- <p class="text-center">Selamat datang di layanan konsultasi rekomendasi penyakit wajah dari Somethinc. Kami hadir untuk
-            membantu Anda
-            menemukan penyakit yang tepat sesuai dengan masalah kulit yang Anda alami. Dengan menjawab beberapa pertanyaan
-            sederhana mengenai kondisi kulit Anda, kami dapat memberikan rekomendasi produk yang paling sesuai untuk
-            kebutuhan Anda.</p> --}}
+        <h2 class="text-center">Konsultasi Penyakit Infeksi Jamur Pada Kucing</h2>
+        <p class="text-center">Selamat datang di Sistem Pakar Diagnosa Penyakit Infeksi Jamur Kucing, tempat terbaik untuk mendapatkan informasi dan konsultasi seputar penyakit infeksi jamur pada kucing. Kami memahami betapa pentingnya kesehatan hewan peliharaan Anda dan siap membantu mengidentifikasi serta memberikan solusi untuk mengatasi berbagai masalah infeksi jamur yang dapat mengganggu kenyamanan kucing kesayangan Anda.</p>
         <form method="post" action="{{ route('calculate.cf') }}" id="cfForm">
             @csrf
             <div class="table-responsive">
-                <table class="table table-bordered " style="border:#388da8">
-                    <thead style="--bs-table-bg: #388da8; --bs-table-color:white;" class="text-white">
+                <table class="table table-bordered " style="border:#5cc5fd">
+                    <thead style="--bs-table-bg: #5cc5fd; --bs-table-color:rgb(0, 0, 0);" class="text-white">
                         <tr>
-                            <th class="text-center">Kode Gejala</th>
-                            <th>Nama Gejala</th>
-                            <th>Kondisi</th>
-                            <th>Aksi</th>
+                            <th class="text-center">KODE GEJALA</th>
+                            <th>NAMA GEJALA</th>
+                            <th>KONDISI</th>
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($gejala as $kategori => $items)
                             <tr>
-                                <td class="text-left" colspan="5" style="color: #388da8"><b>{{ $kategori }}</b></td>
+                                <td class="text-left" colspan="5" style="color: #5cc5fd"><b>{{ $kategori }}</b></td>
                             </tr>
                             @foreach ($items as $item)
                                 <tr>
@@ -34,12 +30,12 @@
                                     <td>
                                         <select id="gejala_{{ $item['kode_gejala'] }}"
                                             name="gejala[{{ $item['kode_gejala'] }}]" class="form-control cf-select">
-                                            <option value="0">Tidak Ada</option>
-                                            <option value="0.2">Tidak Tahu</option>
-                                            <option value="0.4">Mungkin</option>
-                                            <option value="0.6">Kemungkinan Besar</option>
-                                            <option value="0.8">Hampir Pasti</option>
-                                            <option value="1">Pasti</option>
+                                            <option value="0">Tidak Yakin</option>
+                                            <option value="0.2">Kurang Yakin</option>
+                                            <option value="0.4">Sedikit Yakin</option>
+                                            <option value="0.6">Cukup Yakin</option>
+                                            <option value="0.8">Yakin</option>
+                                            <option value="1">Sangat Yakin</option>
                                         </select>
                                     </td>
                                     <td class="text-center">
@@ -58,7 +54,7 @@
                 </table>
             </div>
             <button type="button" class="btn btn-primary" id="submitBtn">Lanjutkan Konsultasi</button>
-            <a href="{{ route('home') }}" class="btn btn-info">Kembali</a>
+            <a href="{{ route('home') }}" class="btn btn-warning">Kembali</a>
         </form>
     </div>
     <style>

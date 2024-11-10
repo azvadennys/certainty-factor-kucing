@@ -4,20 +4,16 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Cat Solution</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Infeksi Jamur Kucing</title>
+    <meta content="Infeksi Jamur Kucing" name="description">
+    <meta content="Infeksi Jamur Kucing" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('assets/img/iconkucing.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/iconkucing.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -27,6 +23,7 @@
     <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+    @stack('custome_head')
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 
@@ -35,7 +32,6 @@
 
     <!-- Add SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @stack('custome_head')
     <!-- =======================================================
   * Template Name: QuickStart
   * Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
@@ -44,6 +40,48 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+
+    body {
+        font-family: 'Lilita One', sans-serif;
+        position: relative;
+        /* Memastikan overlay berfungsi dengan benar */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        /* Mengisi seluruh tinggi viewport */
+        /* overflow: hidden; Menghindari scroll yang tidak diinginkan */
+    }
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('{{ asset('assets/img/background.jpg') }}');
+        background-repeat: repeat-y;
+        /* Ulangi gambar secara vertikal */
+        background-size: 100% auto;
+        /* Mengisi lebar layar 100% dan mempertahankan proporsi tinggi */
+        background-position: top left;
+        /* Mulai dari pojok kiri atas */
+        opacity: 0.1;
+        /* Menjadikan background image dengan opacity 10% */
+        z-index: -1;
+        /* Membuat overlay berada di bawah konten body */
+    }
+
+
+    footer {
+        padding: 1em;
+        margin: 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
 
 <body class="index-page">
 
@@ -52,10 +90,7 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section">
-            <div class="hero-bg">
-                <img src="assets/img/hero-bg-light.webp" alt="">
-            </div>
+        <section id="hero" class="hero section" style="bac">
             <div class="container">
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible " role="alert">
@@ -84,7 +119,8 @@
     <footer id="footer" class="footer position-relative light-background">
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Nabila Aulia Zalfa</strong><span>All Rights
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">KERIN LAURENSYAH YUDISTIRA </strong><span>All
+                    Rights
                     Reserved</span></p>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

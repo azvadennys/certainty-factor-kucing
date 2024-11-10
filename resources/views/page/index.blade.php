@@ -7,7 +7,7 @@
                     <div class="card-body p-5">
                         <h1 class="display-4 mb-4" style="color: var(--accent-color);">Selamat Datang!</h1>
                         <h2 class="h4 mb-3 text-dark">Sistem Pakar Diagnosa penyakit Jamur Pada Kucing</h2>
-                        <p class="lead text-muted"></p>
+                        <p class="lead text-muted">Pemeriksaan kesehatan kucing secara rutin sangat bermanfaat untuk semua kucing. Selain memastikan bahwa sahabat Anda selalu dalam kondisi sehat dan berkembang dengan baik,  pemeriksaan kesehatan rutin juga dapat memberikan wawasan tentang kebutuhan dan perilaku alami mereka. </p>
                         <a href="{{ route('diagnosa') }}" class="btn btn-primary btn-lg mt-4">Mulai
                             Konsultasi</a>
                     </div>
@@ -79,37 +79,4 @@
             <br>
         @endif --}}
     @endauth
-    <div class="row">
-        <div class="col-sm-4 text-center padding wow fadeIn animated" data-wow-duration="1000ms" data-wow-delay="300ms"
-            style="visibility: visible; animation-duration: 1000ms; animation-delay: 300ms; animation-name: fadeIn;">
-            <div class="single-service">
-
-                {{-- <img src="aset/banner/icon3.png" alt=""> --}}
-
-                <h2>Aplikasi Responsif</h2>
-                <p>Aplikasi sistem pakar ini dapat menyesuaikan ukuran perangkat anda, jadi walupun di akses melalui
-                    perangkat mobile tetap nyaman juga.</p>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center padding wow fadeIn animated" data-wow-duration="1000ms" data-wow-delay="600ms"
-            style="visibility: visible; animation-duration: 1000ms; animation-delay: 600ms; animation-name: fadeIn;">
-            <div class="single-service">
-
-                {{-- <img src="aset/banner/icon2.png" alt=""> --}}
-
-                <h2>Sahabat Kecantikan</h2>
-                <p>Sistem Pakar ini terus di sesuaikan perhitungan diagnosanya, supaya akurasi terhadap gejala yang
-                    diderita lebih sesuai dan menjadi acuan pengguna.</p>
-            </div>
-        </div>
-        <div class="col-sm-4 text-center padding wow fadeIn animated" data-wow-duration="1000ms" data-wow-delay="900ms"
-            style="visibility: visible; animation-duration: 1000ms; animation-delay: 900ms; animation-name: fadeIn;">
-            <div class="single-service">
-                {{-- <img src="aset/banner/icon1.png" alt=""> --}}
-                <h2>Admin Pakar</h2>
-                <p>Terdapat fitur admin pakar, untuk mengatur pengetahuan dan CF pakar, telah di sesuaikan tampilannya
-                    sehingga pakar bisa lebih mengeksplore aplikasi.</p>
-            </div>
-        </div>
-    </div>
 @endsection

@@ -35,6 +35,7 @@ class PengetahuanSeeder extends Seeder
                 ['kode_penyakit' => 'P001', 'kode_gejala' => 'G60', 'nilai_cf' => 0.25],
 
                 ['kode_penyakit' => 'P002', 'kode_gejala' => 'G03', 'nilai_cf' => 0.6],
+                ['kode_penyakit' => 'P002', 'kode_gejala' => 'G16', 'nilai_cf' => 0.8],
                 ['kode_penyakit' => 'P002', 'kode_gejala' => 'G18', 'nilai_cf' => 0.4],
                 ['kode_penyakit' => 'P002', 'kode_gejala' => 'G20', 'nilai_cf' => 0.8],
                 ['kode_penyakit' => 'P002', 'kode_gejala' => 'G22', 'nilai_cf' => 0.6],
@@ -48,6 +49,7 @@ class PengetahuanSeeder extends Seeder
                 ['kode_penyakit' => 'P003', 'kode_gejala' => 'G19', 'nilai_cf' => 0.75],
                 ['kode_penyakit' => 'P003', 'kode_gejala' => 'G26', 'nilai_cf' => 0.5],
                 ['kode_penyakit' => 'P003', 'kode_gejala' => 'G58', 'nilai_cf' => 0.6],
+                ['kode_penyakit' => 'P003', 'kode_gejala' => 'G61', 'nilai_cf' => 0.8],
 
                 ['kode_penyakit' => 'P004', 'kode_gejala' => 'G03', 'nilai_cf' => 0.3],
                 ['kode_penyakit' => 'P004', 'kode_gejala' => 'G07', 'nilai_cf' => 0.25],
