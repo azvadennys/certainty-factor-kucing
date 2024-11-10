@@ -60,7 +60,6 @@ class PengetahuanSeeder extends Seeder
                 ['kode_penyakit' => 'P004', 'kode_gejala' => 'G51', 'nilai_cf' => 0.9],
 
                 ['kode_penyakit' => 'P005', 'kode_gejala' => 'G07', 'nilai_cf' => 0.2],
-                ['kode_penyakit' => 'P005', 'kode_gejala' => 'G16', 'nilai_cf' => 0.95],
                 ['kode_penyakit' => 'P005', 'kode_gejala' => 'G17', 'nilai_cf' => 0.6],
                 ['kode_penyakit' => 'P005', 'kode_gejala' => 'G19', 'nilai_cf' => 0.6],
                 ['kode_penyakit' => 'P005', 'kode_gejala' => 'G20', 'nilai_cf' => 0.4],
