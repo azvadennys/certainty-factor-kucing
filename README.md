@@ -57,7 +57,7 @@ $ php artisan key:generate
 Execute the following command to create the database schema. Make sure you have created a new database in MySQL. Please adjust the .env file with your database details. 
 
 ```
-$ php artisan migrate:fresh
+$ php artisan migrate:fresh --seed
 ```
 
 To link your public folder with storage, run:
