@@ -16,7 +16,7 @@
     </div>
 
 
-    <h2 class="mt-5">Animasi</h2>
+    <h2 class="text-center mt-5">Animasi</h2>
     <div class="row justify-content-center">
         @foreach ($animasi as $item)
             <div class="col-md-6 mb-4">
@@ -39,6 +39,8 @@
     <h2 class="mt-5">Hasil Perhitungan Certainty Factor</h2>
     <style>
         .modal-dialog-centered {
+            padding-top: 10vh;
+            padding-bottom: 5vh;
             display: flex;
             align-items: center;
             min-height: calc(100% - 1rem);
@@ -67,31 +69,30 @@
             @endforeach
         </tbody>
     </table>
-    <a href="{{ $url_back }}" class="btn btn-info">Kembali</a>
+    <a href="{{ $url_back }}" class="btn btn-warning">Kembali</a>
     @foreach ($penyakitResults as $penyakit)
         @php
             $penyakitDetail = $penyakitAll->firstWhere('kode_penyakit', $penyakit->kode_penyakit);
         @endphp
 
         <!-- Modal for Iterasi CF -->
-        <div class="modal fade" id="iterasiModal{{ $penyakit->kode_penyakit }}" tabindex="-1" role="dialog"
+        <div class="modal modal-lg fade" id="iterasiModal{{ $penyakit->kode_penyakit }}" tabindex="-1" role="dialog"
             aria-labelledby="iterasiModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-lg  modal-dialog-scrollable modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="iterasiModalLabel">Detail Iterasi CF penyakit:
+                    <div class="modal-header text-white" style="background-color: var(--accent-color)">
+                        <h5 class="modal-title text-white" id="iterasiModalLabel">Detail Iterasi CF:
                             {{ $penyakit->nama_penyakit }}
                         </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row justify-content-center align-items-center mb-4">
                             <div class="col-md-10">
                                 <div class="card text-center ">
-                                    <img src="{{ asset($penyakitDetail->foto_penyakit) }}" class="card-img-top img-fluid mt-4"
-                                        alt="{{ $penyakitDetail->nama_penyakit }}" style="height: 300px; object-fit: cover;">
+                                    <img src="{{ asset($penyakitDetail->foto_penyakit) }}" class="card-img-top img-fluid"
+                                        alt="{{ $penyakitDetail->nama_penyakit }}"
+                                        style="height: 300px; object-fit: cover;">
                                     <div class="card-body">
                                         <h3 class="card-title"><b>{{ $penyakitDetail->nama_penyakit }}</b></h3>
                                         <p class="card-text">{{ $penyakitDetail->deskripsi }}</p>
@@ -123,7 +124,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
