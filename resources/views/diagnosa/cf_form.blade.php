@@ -5,7 +5,10 @@
 @section('content')
     <div class="container">
         <h2 class="text-center">Konsultasi Penyakit Infeksi Jamur Pada Kucing</h2>
-        <p class="text-center">Selamat datang di Sistem Pakar Diagnosa Penyakit Infeksi Jamur Kucing, tempat terbaik untuk mendapatkan informasi dan konsultasi seputar penyakit infeksi jamur pada kucing. Kami memahami betapa pentingnya kesehatan hewan peliharaan Anda dan siap membantu mengidentifikasi serta memberikan solusi untuk mengatasi berbagai masalah infeksi jamur yang dapat mengganggu kenyamanan kucing kesayangan Anda.</p>
+        <p class="text-center">Selamat datang di Sistem Pakar Diagnosa Penyakit Infeksi Jamur Kucing, tempat terbaik untuk
+            mendapatkan informasi dan konsultasi seputar penyakit infeksi jamur pada kucing. Kami memahami betapa pentingnya
+            kesehatan hewan peliharaan Anda dan siap membantu mengidentifikasi serta memberikan solusi untuk mengatasi
+            berbagai masalah infeksi jamur yang dapat mengganggu kenyamanan kucing kesayangan Anda.</p>
         <form method="post" action="{{ route('calculate.cf') }}" id="cfForm">
             @csrf
             <div class="table-responsive">
@@ -59,6 +62,8 @@
     </div>
     <style>
         .modal-dialog-centered {
+            padding-top: 10vh;
+            padding-bottom: 5vh;
             display: flex;
             align-items: center;
             min-height: calc(100% - 1rem);
@@ -74,11 +79,16 @@
 
                 </div>
                 <div class="modal-body">
-                    <p><strong>Kode Gejala:</strong> <span id="modalKodeGejala"></span></p>
-                    <p><strong>Nama Gejala:</strong> <span id="modalNamaGejala"></span></p>
-                    <p><strong>Deskripsi Gejala:</strong> <span id="modalDeskripsiGejala"></span></p>
-                    <p><strong>Foto Gejala:</strong></p>
-                    <img id="modalFotoGejala" src="" alt="Foto Gejala" class="img-fluid">
+                    <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+                        <img id="modalFotoGejala" src="" alt="Foto Gejala" class="img-fluid rounded"
+                            style="height: 300px; object-fit: cover;">
+                    </div>
+
+                    <p><strong>Kode Gejala:</strong> <span id="modalKodeGejala"></span><br>
+                        <strong>Nama Gejala:</strong> <span id="modalNamaGejala"></span><br>
+                        <strong>Deskripsi Gejala:</strong> <span id="modalDeskripsiGejala"></span>
+                    </p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
