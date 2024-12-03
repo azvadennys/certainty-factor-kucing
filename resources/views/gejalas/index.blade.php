@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{ $index->kode_gejala }}</td>
                         <td>{{ $index->nama_gejala }}</td>
-                        <td>{{ $index->deskripsi_gejala }}</td>
+                        <td style="text-align: justify">{{ $index->deskripsi_gejala }}</td>
                         <td class="text-center">
                             @if ($index->foto_gejala)
                                 <img src="{{ asset($index->foto_gejala) }}" alt="{{ $index->nama_gejala }}" height="100">

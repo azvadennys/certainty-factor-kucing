@@ -21,17 +21,19 @@
                     <tr>
                         <td>{{ $penyakit->kode_penyakit }}</td>
                         <td>{{ $penyakit->nama_penyakit }}</td>
-                        <td>{{ $penyakit->deskripsi }}</td>
+                        <td style="text-align: justify">{{ $penyakit->deskripsi }}</td>
                         <td class="text-center">
                             @if ($penyakit->foto_penyakit)
-                                <img src="{{ asset($penyakit->foto_penyakit) }}" alt="{{ $penyakit->nama_penyakit }}" height="100">
+                                <img src="{{ asset($penyakit->foto_penyakit) }}" alt="{{ $penyakit->nama_penyakit }}"
+                                    height="100">
                             @else
                                 No image
                             @endif
                         </td>
                         <td>
                             {{-- <button class="btn btn-info btn-show" data-id="{{ $penyakit->kode_penyakit }}">Show</button> --}}
-                            <a href="{{ route('penyakits.edit', $penyakit->kode_penyakit) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('penyakits.edit', $penyakit->kode_penyakit) }}"
+                                class="btn btn-warning">Edit</a>
                             <form action="{{ route('penyakits.destroy', $penyakit->kode_penyakit) }}" method="POST"
                                 style="display:inline-block;">
                                 @csrf

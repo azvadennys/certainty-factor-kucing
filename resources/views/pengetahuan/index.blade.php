@@ -6,7 +6,7 @@
     <div class="p-4">
         <h1 class="mb-4">Daftar Pengetahuan</h1>
         <a href="{{ route('pengetahuan.create') }}" class="btn btn-primary mb-3">Tambah Pengetahuan</a>
-        <table class="table" id="pengetahuan-table">
+        <table class="table" id="table1">
             <thead>
                 <tr>
                     <th class="text-center">Kode Penyakit</th>
@@ -44,7 +44,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#pengetahuan-table').DataTable();
+            $('#table1').DataTable();
         });
     </script>
 @endpush

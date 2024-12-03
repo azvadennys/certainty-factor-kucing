@@ -7,7 +7,7 @@
         <h1 class="mb-4">Manage Users</h1>
         <a href="{{ route('users.create') }}" class="btn btn-primary mb-3">Add User</a>
 
-        <table class="table" id="users-table">
+        <table class="table" id="table1">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -47,7 +47,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#users-table').DataTable();
+            $('#table1').DataTable();
         });
     </script>
 @endpush

@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <h1 class="mb-4">Daftar Riwayat</h1>
-                <table class="table table-bordered" id="riwayat-table">
+                <table class="table table-bordered" id="table1">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -47,7 +47,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#riwayat-table').DataTable();
+            $('#table1').DataTable();
         });
     </script>
 @endpush
