@@ -1,15 +1,29 @@
 @extends('index')
 
 @section('content')
-    <h2 class="text-center mb-4">Prediksi Penyakit</h2>
+    <h2 class="text-center mb-4">Hasil Diagnosa</h2>
     <div class="row justify-content-center align-items-center">
         <div class="col-md-8">
             <div class="card">
                 <img src="{{ asset($penyakit->foto_penyakit) }}" class="card-img-top" alt="{{ $penyakit->nama_penyakit }}"
                     style="height: 300px; width: auto; object-fit: contain;">
                 <div class="card-body">
-                    <h3 class="card-title text-center"><b>{{ $penyakit->nama_penyakit }}</b></h3>
-                    <p class="card-text">{{ $penyakit->deskripsi }}</p>
+                    <style>
+                        .custom-span-style {
+                            color: color-mix(in srgb, var(--default-color), transparent 30%);
+                            margin: 5px 0 30px 0;
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                    </style>
+
+                    <h3 class="card-title text-center">
+                        <b>{{ $penyakit->nama_penyakit }}</b>
+                        <span class="custom-span-style"> / {{ round($penyakitResults[0]->persentase, 2) }}%
+                            ({{ $penyakitResults[0]->persentase }}) </span>
+                    </h3>
+
+                    <p class="card-text" style="text-align: justify;">{{ $penyakit->deskripsi }}</p>
                 </div>
             </div>
         </div>
@@ -36,7 +50,7 @@
         @endforeach
     </div>
 
-    <h2 class="mt-5">Hasil Perhitungan Certainty Factor</h2>
+    <h2 class="mt-5">Kemungkinan Lainnya</h2>
     <style>
         .modal-dialog-centered {
             padding-top: 10vh;
@@ -58,7 +72,7 @@
             @foreach ($penyakitResults as $penyakit)
                 <tr>
                     <td>{{ $penyakit->nama_penyakit }}</td>
-                    <td>{{ $penyakit->persentase * 100 }}%</td>
+                    <td>{{ round($penyakit->persentase, 2) }}% ({{ $penyakit->persentase * 100 }})</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#iterasiModal{{ $penyakit->kode_penyakit }}">

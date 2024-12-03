@@ -29,6 +29,9 @@ class RiwayatController extends Controller
         $cfResults = json_decode($riwayats->cfResults);
         $penyakitResults = json_decode($riwayats->penyakitResults);
 
+        // Ambil 4 elemen pertama
+        $penyakitResults = array_slice($penyakitResults, 0, 4);
+
         $penyakitTertinggi = $penyakitResults[0]->kode_penyakit;
         // Query menggunakan Eloquent untuk mencari data animasi berdasarkan id_penyakit
         $animasi = Animasi::whereJsonContains('id_penyakit', $penyakitTertinggi)->get();
