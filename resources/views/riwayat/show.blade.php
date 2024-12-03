@@ -19,7 +19,7 @@
 
                     <h3 class="card-title text-center">
                         <b>{{ $penyakit->nama_penyakit }}</b>
-                        <span class="custom-span-style"> / {{ round($penyakitResults[0]->persentase, 2) }}%
+                        <span class="custom-span-style"> / {{ round($penyakitResults[0]->persentase, 2)* 100  }}%
                             ({{ $penyakitResults[0]->persentase }}) </span>
                     </h3>
 
@@ -72,7 +72,7 @@
             @foreach ($penyakitResults as $penyakit)
                 <tr>
                     <td>{{ $penyakit->nama_penyakit }}</td>
-                    <td>{{ round($penyakit->persentase, 2) }}% ({{ $penyakit->persentase * 100 }})</td>
+                    <td>{{ round($penyakit->persentase, 2)* 100  }}% ({{ $penyakit->persentase * 100 }})</td>
                     <td>
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#iterasiModal{{ $penyakit->kode_penyakit }}">

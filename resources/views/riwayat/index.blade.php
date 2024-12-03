@@ -12,6 +12,7 @@
                         <tr>
                             <th>#</th>
                             <th>User</th>
+                            <th>Diagnosa</th>
                             <th>Tanggal</th>
                             <th>Actions</th>
                         </tr>
@@ -21,6 +22,11 @@
                             <tr>
                                 <td>{{ $riwayat->id }}</td>
                                 <td>{{ $riwayat->user->name }}</td>
+                                @php
+                                    $penyakitResults = json_decode($riwayat->penyakitResults);
+                                    $penyakitTertinggi = $penyakitResults[0]->kode_penyakit . " - ". $penyakitResults[0]->nama_penyakit;
+                                @endphp
+                                <td>{{ $penyakitTertinggi }}</td>
                                 <td>{{ $riwayat->created_at->format('d M Y H:i') }}</td>
                                 <td>
                                     <a href="{{ route('riwayat.show', $riwayat->id) }}" class="btn btn-info">View</a>
