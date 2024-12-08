@@ -24,6 +24,13 @@ class CFController extends Controller
         $penyakits = Penyakit::all();
         $penyakitResults = [];
 
+        $gejalaInput = array_filter($userInput, function ($value) {
+            return $value > 0;
+        });
+        // Mendapatkan key dari array yang sudah difilter
+        $gejalaInput = array_keys($gejalaInput);
+        $gejalaData = Gejala::whereIn('kode_gejala', $gejalaInput)->get(['kode_gejala', 'nama_gejala']);
+        
         foreach ($penyakits as $penyakit) {
             $cf_penyakit = 0;
             $iterasiCF = [];
@@ -68,12 +75,13 @@ class CFController extends Controller
         // Ubah iterasiCF menjadi format JSON untuk penyimpanan
         $cfResultsJson = json_encode($cfResults);
         $penyakitResultsJson = json_encode($penyakitResults);
-
+        $gejalaInputJson = json_encode($gejalaData);
         // Simpan ke dalam tabel riwayat
         $riwayat = new Riwayat();
         $riwayat->id_users = auth()->user()->id; // Sesuaikan dengan ID pengguna yang sesuai
         $riwayat->cfResults = $cfResultsJson;
         $riwayat->penyakitResults = $penyakitResultsJson;
+        $riwayat->gejalaInput = $gejalaInputJson;
         $riwayat->save();
 
         // Ambil ID dari data yang baru disimpan

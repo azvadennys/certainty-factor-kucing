@@ -25,10 +25,9 @@ class RiwayatController extends Controller
     {
 
         $riwayats = Riwayat::where('id', $id)->first();
-
         $cfResults = json_decode($riwayats->cfResults);
         $penyakitResults = json_decode($riwayats->penyakitResults);
-
+        $gejalaInput = json_decode($riwayats->gejalaInput);
         // Ambil 4 elemen pertama
         $penyakitResults = array_slice($penyakitResults, 0, 4);
 
@@ -39,7 +38,7 @@ class RiwayatController extends Controller
         $penyakitAll = Penyakit::all();
         $url_back = url()->previous();
 
-        return view('riwayat.show', compact('riwayats', 'cfResults', 'penyakitResults', 'animasi', 'penyakit', 'penyakitAll', 'url_back'));
+        return view('riwayat.show', compact('riwayats', 'cfResults', 'penyakitResults', 'animasi', 'penyakit', 'penyakitAll', 'url_back', 'gejalaInput'));
     }
 
     public function destroy($id)

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('id_users')->references('id')->on('users')->onDelete('cascade');
             $table->text('cfResults');
             $table->text('penyakitResults');
+            $table->text('gejalaInput');
             $table->timestamps();
         });
     }
