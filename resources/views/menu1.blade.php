@@ -2,14 +2,21 @@
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
         <a href="{{ route('home') }}" class="logo d-flex align-items-center me-auto">
-            <img src="{{ asset("assets/img/iconkucing.png") }}" alt="">
+            <img src="{{ asset('assets/img/iconkucing.png') }}" alt="">
             <h1 class="sitename">Infeksi Jamur Kucing</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a class="{{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}"><i
-                            class="fa fa-home"></i> Beranda</a></li>
+                            class="fa fa-home"></i>
+                        @if (auth()->user()->role == 'admin')
+                            Dashboard
+                        @else
+                            Beranda
+                        @endif
+                    </a></li>
+
                 <li><a class="{{ Request::is('konsultasi*') ? 'active' : '' }}" href="{{ url('konsultasi') }}"><i
                             class="fa fa-search-plus"></i> Konsultasi</a></li>
 
