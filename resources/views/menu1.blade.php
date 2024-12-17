@@ -10,11 +10,17 @@
             <ul>
                 <li><a class="{{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}"><i
                             class="fa fa-home"></i>
-                        @if (auth()->user()->role == 'admin')
-                            Dashboard
-                        @else
+                        @auth
+                            @if (auth()->user()->role == 'admin')
+                                Dashboard
+                            @else
+                                Beranda
+                            @endif
+                        @endauth
+                        @guest
                             Beranda
-                        @endif
+                        @endguest
+
                     </a></li>
 
                 <li><a class="{{ Request::is('konsultasi*') ? 'active' : '' }}" href="{{ url('konsultasi') }}"><i

@@ -15,7 +15,7 @@ class LandingPage extends Controller
 {
     public function index()
     {
-        if (auth()->user()->role == 'admin') {
+        if (auth()->check()) {
 
             $penyakit_terdiagnosa = [];
 
@@ -35,8 +35,8 @@ class LandingPage extends Controller
             $penyakit_count = [];
             foreach ($penyakit_terdiagnosa as $penyakit) {
                 $penyakit_count[$penyakit['kode_penyakit']] = isset($penyakit_count[$penyakit['kode_penyakit']])
-                ? $penyakit_count[$penyakit['kode_penyakit']] + 1
-                : 1;
+                    ? $penyakit_count[$penyakit['kode_penyakit']] + 1
+                    : 1;
             }
 
             // Persiapkan data untuk chart
@@ -67,8 +67,12 @@ class LandingPage extends Controller
                 // Ambil jumlah penyakit terdiagnosa
                 'penyakit_chart_data' => $penyakit_chart_data,
             ];
-            // dd($penyakit_chart_data);
-            return view('page.dashboard', $data);
+            if (auth()->user()->role == "admin") {
+                // dd($penyakit_chart_data);
+                return view('page.dashboard', $data);
+            } else {
+                return view('page.index');
+            }
         } else {
             return view('page.index');
         }
