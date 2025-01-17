@@ -5,9 +5,9 @@
         <!-- Card Stats -->
         <div class="row">
             <!-- Card Total Gejala -->
-            <div class="col-md-3">
+            <div class="col-md-3 mb-2">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Total Gejala
                     </div>
                     <div class="card-body">
@@ -17,9 +17,9 @@
             </div>
 
             <!-- Card Total Penyakit -->
-            <div class="col-md-3">
+            <div class="col-md-3 mb-2">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Total Penyakit
                     </div>
                     <div class="card-body">
@@ -29,9 +29,9 @@
             </div>
 
             <!-- Card Total Pengetahuan -->
-            <div class="col-md-3">
+            <div class="col-md-3 mb-2">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Total Pengetahuan
                     </div>
                     <div class="card-body">
@@ -41,9 +41,9 @@
             </div>
 
             <!-- Card Total Pengguna -->
-            <div class="col-md-3">
-                <div class="card primary">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Total Pengguna
                     </div>
                     <div class="card-body">
@@ -55,9 +55,9 @@
 
         <!-- Bar Chart & Pie Chart -->
         <div class="row mt-5">
-            <div class="col-md-6">
-                <div class="card primary">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-6 mb-2">
+                <div class="card">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Diagnosa Seminggu Terakhir
                     </div>
                     <div class="card-body">
@@ -66,9 +66,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card primary">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-6 mb-2">
+                <div class="card">
+                    <div class="card-header text-white "style="background-color: #6096B4">
                         Penyakit Terdiagnosa
                     </div>
                     <div class="card-body">
