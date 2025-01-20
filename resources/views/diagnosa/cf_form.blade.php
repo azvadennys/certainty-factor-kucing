@@ -33,8 +33,8 @@
                                     <td>
                                         <select id="gejala_{{ $item['kode_gejala'] }}"
                                             name="gejala[{{ $item['kode_gejala'] }}]" class="form-control cf-select">
-                                            <option value="0">Tidak Yakin (0%)</option>
-                                            <option value="0.2">Kurang Yakin (20%)</option>
+                                            <option value="0">Tidak (0%)</option>
+                                            <option value="0.2">Tidak Tahu (20%)</option>
                                             <option value="0.4">Sedikit Yakin (40%)</option>
                                             <option value="0.6">Cukup Yakin (60%)</option>
                                             <option value="0.8">Yakin (80%)</option>
