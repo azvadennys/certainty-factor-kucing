@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('penyakit', function (Blueprint $table) {
             $table->string('kode_penyakit',6)->primary();
-            $table->string('nama_penyakit',100);
+            $table->string('nama_penyakit',50);
             $table->text('deskripsi');
-            $table->string('foto_penyakit',100);
+            $table->string('foto_penyakit',25);
             $table->timestamps();
         });
     }

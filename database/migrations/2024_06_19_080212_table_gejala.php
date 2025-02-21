@@ -10,10 +10,10 @@ class TableGejala extends Migration
     {
         Schema::create('gejala', function (Blueprint $table) {
             $table->string('kode_gejala', 6)->primary();
-            $table->string('nama_gejala',100);
-            $table->string('kategori',50);
+            $table->string('nama_gejala',90);
+            $table->string('kategori',30);
             $table->text('deskripsi_gejala');
-            $table->string('foto_gejala',100);
+            $table->string('foto_gejala',25);
             $table->timestamps();
         });
     }

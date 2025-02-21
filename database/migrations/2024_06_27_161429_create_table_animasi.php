@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('animasi', function (Blueprint $table) {
             $table->id();
-            $table->string('nama',100);
-            $table->string('video_animasi',100);
+            $table->string('nama',50);
+            $table->string('video_animasi',40);
             $table->text('narator');
             $table->text('id_penyakit');
             $table->timestamps();
